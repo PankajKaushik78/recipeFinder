@@ -9,14 +9,25 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/js/test.js":
-/*!************************!*
-  !*** ./src/js/test.js ***!
-  \************************/
+/***/ "./src/js/models/Search.js":
+/*!*********************************!*
+  !*** ./src/js/models/Search.js ***!
+  \*********************************/
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nconsole.log(\"Hello from imported file!\");\nexports.default = 100;\n\n//# sourceURL=webpack://forkify/./src/js/test.js?");
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports.default = \"Hello I am a default export\";\n\n//# sourceURL=webpack://forkify/./src/js/models/Search.js?");
+
+/***/ }),
+
+/***/ "./src/js/views/searchView.js":
+/*!************************************!*
+  !*** ./src/js/views/searchView.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nvar add = exports.add = function add(a, b) {\n  return a + b;\n};\nvar mul = exports.mul = function mul(a, b) {\n  return a * b;\n};\nvar ID = exports.ID = 500;\n\n//# sourceURL=webpack://forkify/./src/js/views/searchView.js?");
 
 /***/ }),
 
@@ -3471,7 +3482,7 @@ eval("\n\n__webpack_require__(/*! core-js/shim */ \"./node_modules/core-js/shim.
 /*!*************************!*
   !*** ./src/js/index.js ***!
   \*************************/
-eval("\n\nvar _test = __webpack_require__(/*! ./test */ \"./src/js/test.js\");\n\nvar _test2 = _interopRequireDefault(_test);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nconsole.log('Hello i am imported from test.js and my value is ' + _test2.default);\n\n//# sourceURL=webpack://forkify/./src/js/index.js?");
+eval("\n\nvar _Search = __webpack_require__(/*! ./models/Search */ \"./src/js/models/Search.js\");\n\nvar _Search2 = _interopRequireDefault(_Search);\n\nvar _searchView = __webpack_require__(/*! ./views/searchView */ \"./src/js/views/searchView.js\");\n\nvar searchView = _interopRequireWildcard(_searchView);\n\nfunction _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nconsole.log(_Search2.default);\n// import { add as a, mul as m, ID } from './views/searchView';\n\nconsole.log('result is : ' + searchView.add(3, searchView.ID) + ' and ' + searchView.mul(4, 10));\n\n//# sourceURL=webpack://forkify/./src/js/index.js?");
 })();
 
 /******/ })()
