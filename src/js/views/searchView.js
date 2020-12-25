@@ -9,6 +9,16 @@ export const clearResult = () => {
     elements.searchResPages.innerHTML = '';
 };
 
+export const highlightSelected = id => {
+    const res = Array.from(document.querySelectorAll(".results__link"));
+    res.forEach(el => {
+        el.classList.remove("results__link--active");
+    })
+    const selected = document.querySelector(`.results__link[href*="${id}"]`)
+    if(selected)
+        selected.classList.add('results__link--active');
+};
+
 const limitTitle = (title, limit=17) => {
     const res = [];
     if(title.length > 17){
