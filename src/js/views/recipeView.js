@@ -84,7 +84,7 @@ export const renderRecipe = recipe => {
             ${recipe.ingredients.map(ing => createIng(ing)).join(' ')}
         </ul>
 
-        <button class="btn-small recipe__btn">
+        <button class="btn-small recipe__btn-add">
             <svg class="search__icon">
                 <use href="img/icons.svg#icon-shopping-cart"></use>
             </svg>
