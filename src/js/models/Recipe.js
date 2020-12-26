@@ -80,4 +80,13 @@ export default class Recipe {
     calcServings() {
         this.servings = 4;
     }
+
+    updateIngredients(type) {
+        const newServing = type === 'dec' ? this.servings-1 : this.servings+1;
+
+        this.ingredients.forEach(curr => {
+            curr.count = newServing * (curr.count/this.servings);
+        })
+        this.servings = newServing;
+    }
 };

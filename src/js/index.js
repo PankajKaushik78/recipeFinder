@@ -90,3 +90,16 @@ const controlRecipe = async () => {
 }
 
 ['hashchange', 'load'].forEach(e => window.addEventListener(e, controlRecipe));
+
+//update servings and ingredients count
+elements.recipe.addEventListener('click', e => {
+    if(e.target.matches('.btn-decrease, .btn-decrease *')){
+        if(state.recipe.servings > 1){
+            state.recipe.updateIngredients('dec');
+            recipeView.updateServingsAndIngredients(state.recipe);
+        }
+    }else if(e.target.matches('.btn-increase, .btn-increase *')){
+        state.recipe.updateIngredients('inc');
+        recipeView.updateServingsAndIngredients(state.recipe);
+    }
+});
