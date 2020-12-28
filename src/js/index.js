@@ -1,6 +1,7 @@
 import Search from './models/Search';
-import Recipe from './models/Recipe'
-import List from './models/List'
+import Recipe from './models/Recipe';
+import List from './models/List';
+import Likes from './models/Likes';
 import * as searchView from './views/searchView';
 import * as recipeView from './views/recipeView';
 import * as listView from './views/listView';
@@ -94,7 +95,7 @@ const controlRecipe = async () => {
 
 ['hashchange', 'load'].forEach(e => window.addEventListener(e, controlRecipe));
 
-/*----List controller---*/ 
+/*----LIST controller---*/ 
 const controlList = () => {
     if(!state.list) state.list = new List();
 
@@ -116,6 +117,39 @@ elements.shopping.addEventListener('click', e => {
     }
 });
 
+/*----LIKES controller---*/ 
+const controlLike = () => {
+    if(!state.likes) state.likes = new Likes();
+    const currId = state.recipe.id;
+
+    //if the recipe is NOT LIKED
+    if(!state.likes.isLiked(currId)){
+        //add recipe to the likes state/ds
+        state.likes.addLike(
+            currId,
+            state.recipe.title,
+            state.recipe.img,
+            state.recipe.author
+        );
+
+        //toggle the ui
+
+        //add recipe to the likes ui
+        console.log(state.likes);
+
+    // if the recipe is already LIKED
+    }else{
+        //add recipe to the likes state/ds
+        state.likes.deleteLike(currId);
+
+        //toggle the ui
+
+        //add recipe to the likes ui
+        console.log(state.likes);
+    }
+}
+
+
 //Handling event listeners on recipe
 elements.recipe.addEventListener('click', e => {
     if(e.target.matches('.btn-decrease, .btn-decrease *')){
@@ -126,8 +160,12 @@ elements.recipe.addEventListener('click', e => {
     }else if(e.target.matches('.btn-increase, .btn-increase *')){
         state.recipe.updateIngredients('inc');
         recipeView.updateServingsAndIngredients(state.recipe);
+    //Add items to the shopping list
     }else if(e.target.matches('.recipe__btn-add, .recipe__btn-add *')){
         controlList();
+    //Like or unlike the recipe
+    }else if(e.target.matches('.recipe__love, .recipe__love *')){
+        controlLike();
     }
 });
 
