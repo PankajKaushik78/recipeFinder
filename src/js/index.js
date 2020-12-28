@@ -17,15 +17,11 @@ Maintaining the global state of our app
 */
 
 const state = {};
-window.state = state;
 
 // ----SEARCH CONTROLLER-----
-
-
 const controlSearch = async () => {
     //1. Get the query
-    // const query = searchView.getInput();    
-    const query = "pizza";    
+    const query = searchView.getInput();    
     if(query) {
         //2. Create the search object
         state.search = new Search(query);
@@ -68,7 +64,6 @@ elements.searchResPages.addEventListener('click', e => {
 });
 
 // ---RECIPE CONTROLLER---
-
 const controlRecipe = async () => {
     const id = window.location.hash.replace('#','');
     
